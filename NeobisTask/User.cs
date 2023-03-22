@@ -16,6 +16,6 @@ namespace NeobisTask
 
         public string LastName { get; set; } = null!;
 
-        public int Balance { get; set; }
+        public double Balance { get; set; }
     }
 }

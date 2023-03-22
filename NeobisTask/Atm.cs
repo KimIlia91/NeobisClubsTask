@@ -36,7 +36,7 @@ namespace NeobisTask
         }
 
         //PUT 
-        public string PutMoneyToBalance(int id, int moneyToPut)
+        public string PutMoneyToBalance(int id, double moneyToPut)
         {
             var user = _db.Users.FirstOrDefault(u => u.Id == id);
             if (user is null)
@@ -55,7 +55,7 @@ namespace NeobisTask
         }
 
         //PUT 
-        public string WithdrawMoneyFromBalance(int id, int moneyToWithdraw)
+        public string WithdrawMoneyFromBalance(int id, double moneyToWithdraw)
         {
             var user = _db.Users.FirstOrDefault(u => u.Id == id);
             if (user is null)
