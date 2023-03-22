@@ -15,7 +15,6 @@
             Console.WriteLine(answer);
             atm.PrintBalanceOfClient("Talantbekov");
 
-
             atm.PrintBalanceOfClient("Aidova");
             answer = atm.PutMoneyToBalance("Aidova", 10_000);
             Console.WriteLine(answer);
