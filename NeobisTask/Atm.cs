@@ -38,6 +38,8 @@ namespace NeobisTask
         //PUT 
         public string PutMoneyToBalance(int id, double moneyToPut)
         {
+            if (moneyToPut <= 0)
+                return "Сумма пополнения не может быть меньше нуля или ноль!";
             var user = _db.Users.FirstOrDefault(u => u.Id == id);
             if (user is null)
                 return "Клиент не найден!";
@@ -57,6 +59,8 @@ namespace NeobisTask
         //PUT 
         public string WithdrawMoneyFromBalance(int id, double moneyToWithdraw)
         {
+            if (moneyToWithdraw <= 0)
+                return "Сумма снятия не может быть меньше нуля или ноль!";
             var user = _db.Users.FirstOrDefault(u => u.Id == id);
             if (user is null)
                 Console.WriteLine("Клиент не найден!");
