@@ -43,17 +43,15 @@ namespace NeobisTask
             var user = _db.Users.FirstOrDefault(u => u.Id == id);
             if (user is null)
                 return "Клиент не найден!";
-            var newBalance = user!.Balance + moneyToPut;
             var userToUpdate = new User
             {
                 LastName = user!.LastName,
                 Name = user!.Name,
-                Balance = newBalance
+                Balance = user!.Balance + moneyToPut
             };
-
             _db.Users.Remove(user);
             _db.Users.Add(userToUpdate);
-            return $"Баланс был пополнен на {moneyToPut}. Ваш текущий баланс {newBalance}.";
+            return $"Баланс был пополнен на {moneyToPut}. Ваш текущий баланс {userToUpdate.Balance}.";
         }
 
         //PUT 
@@ -63,20 +61,18 @@ namespace NeobisTask
                 return "Сумма снятия не может быть меньше нуля или ноль!";
             var user = _db.Users.FirstOrDefault(u => u.Id == id);
             if (user is null)
-                Console.WriteLine("Клиент не найден!");
+                return "Клиент не найден!";
             if (user!.Balance < moneyToWithdraw)
                 return "Недостаточно денег на балансе счёта!";
-            var balance = user!.Balance - moneyToWithdraw;
             var userToUpdate = new User
             {
                 LastName = user!.LastName,
                 Name = user!.Name,
-                Balance = balance
+                Balance = user!.Balance - moneyToWithdraw
             };
-
             _db.Users.Remove(user);
             _db.Users.Add(userToUpdate);
-            return $"Вы сняли {moneyToWithdraw}. Ваш текущий баланс {balance}.";
+            return $"Вы сняли {moneyToWithdraw}. Ваш текущий баланс {userToUpdate.Balance}.";
         }
 
         //Get
