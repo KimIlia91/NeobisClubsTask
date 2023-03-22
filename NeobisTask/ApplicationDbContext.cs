@@ -22,9 +22,9 @@ namespace NeobisTask
         {
             return new List<User>()
             {
-                new User { Id = 1, Name = "Talant", LastName = "Talantbekov", Balance = 5000 },
-                new User { Id = 2, Name = "Ruslan", LastName = "Ruslanov", Balance = 1000 },
-                new User { Id = 3, Name = "Aida", LastName = "Aidova", Balance = 800 }
+                new User { Id = 1, Name = "Талант", LastName = "Талантов", Balance = 5000 },
+                new User { Id = 2, Name = "Руслан", LastName = "Русланов", Balance = 1000 },
+                new User { Id = 3, Name = "Аида", LastName = "Аидова", Balance = 800 }
             };
         }
     }
