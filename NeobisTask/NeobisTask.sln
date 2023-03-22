@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeobisTask", "NeobisTask.csproj", "{B82B5787-B1DF-4ED3-984F-3F8DB294C18B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B82B5787-B1DF-4ED3-984F-3F8DB294C18B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B82B5787-B1DF-4ED3-984F-3F8DB294C18B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B82B5787-B1DF-4ED3-984F-3F8DB294C18B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B82B5787-B1DF-4ED3-984F-3F8DB294C18B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ED5289F8-3830-4E54-A8E7-6146BEEC97A9}
+	EndGlobalSection
+EndGlobal
