@@ -16,6 +16,7 @@ namespace NeobisTask
 
         public string LastName { get; set; } = null!;
 
+        [Range(0, int.MaxValue)]
         public double Balance { get; set; }
     }
 }
