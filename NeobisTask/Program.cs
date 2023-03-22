@@ -5,17 +5,24 @@
         static void Main(string[] args)
         {
             var atm = new Atm();
+            var answer = string.Empty;
             atm.PrintAll();
+
             atm.PrintBalanceOfClient("Talantbekov");
-            atm.PutMoneyToBalance("Talantbekov", 100);
+            answer = atm.PutMoneyToBalance("Talantbekov", 100);
+            Console.WriteLine(answer);
+            answer = atm.WithdrawMoneyFromBalance("Talantbekov", 500);
+            Console.WriteLine(answer);
             atm.PrintBalanceOfClient("Talantbekov");
-            atm.WithdrawMoneyFromBalance("Talantbekov", 500);
-            atm.PrintBalanceOfClient("Talantbekov");
+
+
             atm.PrintBalanceOfClient("Aidova");
-            atm.PutMoneyToBalance("Aidova", 10_000);
+            answer = atm.PutMoneyToBalance("Aidova", 10_000);
+            Console.WriteLine(answer);
+            answer = atm.WithdrawMoneyFromBalance("Aidova", 500);
+            Console.WriteLine(answer);
             atm.PrintBalanceOfClient("Aidova");
-            atm.WithdrawMoneyFromBalance("Aidova", 500);
-            atm.PrintBalanceOfClient("Aidova");
+            
             atm.PrintAll();
         }
     }

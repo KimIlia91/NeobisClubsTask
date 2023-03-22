@@ -29,6 +29,7 @@ namespace NeobisTask
             var user = _db.Users.FirstOrDefault(x => x.LastName == lastName);
             if (user is null)
                 Console.WriteLine("Клиент не найден!");
+            Console.WriteLine($"-------------------------");
             Console.WriteLine($"Проверка баланса.");
             Console.WriteLine($"Фамилия: {user!.LastName}");
             Console.WriteLine($"Имя: {user!.Name}");
@@ -37,13 +38,13 @@ namespace NeobisTask
         }
 
         //PUT 
-        public void PutMoneyToBalance(string lastName, int moneyToPut)
+        public string PutMoneyToBalance(string lastName, int moneyToPut)
         {
             if (string.IsNullOrEmpty(lastName))
-                Console.WriteLine("Введите фамилию клиента!");
+                return "Введите фамилию клиента!";
             var user = _db.Users.FirstOrDefault(u => u.LastName == lastName);
             if (user is null)
-                Console.WriteLine("Клиент не найден!");
+                return "Клиент не найден!";
             var newBalance = user!.Balance + moneyToPut;
             var userToUpdate = new User
             {
@@ -54,19 +55,19 @@ namespace NeobisTask
 
             _db.Users.Remove(user);
             _db.Users.Add(userToUpdate);
-            Console.WriteLine($"Баланс был пополнен на {moneyToPut}. Ваш текущий баланс {newBalance}.");
+            return $"Баланс был пополнен на {moneyToPut}. Ваш текущий баланс {newBalance}.";
         }
 
         //PUT 
-        public void WithdrawMoneyFromBalance(string lastName, int moneyToWithdraw)
+        public string WithdrawMoneyFromBalance(string lastName, int moneyToWithdraw)
         {
             if (string.IsNullOrEmpty(lastName))
-                Console.WriteLine("Введите фамилию клиента!");
+                return "Введите фамилию клиента!";
             var user = _db.Users.FirstOrDefault(u => u.LastName == lastName);
             if (user is null)
                 Console.WriteLine("Клиент не найден!");
             if (user!.Balance < moneyToWithdraw)
-                Console.WriteLine("Недостаточно денег на балансе счёта!");
+                return "Недостаточно денег на балансе счёта!";
             var balance = user!.Balance - moneyToWithdraw;
             var userToUpdate = new User
             {
@@ -77,7 +78,7 @@ namespace NeobisTask
 
             _db.Users.Remove(user);
             _db.Users.Add(userToUpdate);
-            Console.WriteLine($"Вы сняли {moneyToWithdraw}. Ваш текущий баланс {balance}.");
+            return $"Вы сняли {moneyToWithdraw}. Ваш текущий баланс {balance}.";
         }
 
         //Get
@@ -88,6 +89,7 @@ namespace NeobisTask
             Console.WriteLine($"Список всех клиентов.");
             foreach (var user in users.OrderBy(u => u.LastName))
             {
+                Console.WriteLine($"-------------------------");
                 Console.WriteLine($"Фамилия: {user.LastName}");
                 Console.WriteLine($"Имя: {user.Name}");
                 Console.WriteLine($"Баланс: {user.Balance}");
