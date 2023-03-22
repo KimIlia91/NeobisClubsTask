@@ -6,8 +6,6 @@ namespace NeobisTask.Repositories.IRepositories
     {
         OperationResponse GetFirstOrDefault(int id);
 
-        OperationResponse GetAll();
-
         OperationResponse AddSum(int id, decimal sum);
 
         OperationResponse MinusSum(int id, decimal sum);

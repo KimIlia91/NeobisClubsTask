@@ -15,14 +15,6 @@ namespace NeobisTask.Repositories
             _response = new OperationResponse();
         }
 
-        public OperationResponse GetAll()
-        {
-            var acccounts = _db.Accounts.OrderBy(a => a.LastName).ToList();
-            _response.Accounts = acccounts;
-            _response.Status = StatusResponse.Ok;
-            return _response;
-        }
-
         public OperationResponse GetFirstOrDefault(int id)
         {
             var account = _db.Accounts.FirstOrDefault(x => x.Id == id);

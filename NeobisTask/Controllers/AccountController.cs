@@ -6,8 +6,6 @@ namespace NeobisTask.Controllers
     /// <summary>
     /// Класс банкомат содержит все основные операции,
     /// которые были в задании(Снятие, поплнение, проверка баланса).
-    /// Также Добавил функцию получить всех клиентов для инфы, чтобы смотреть 
-    /// инфу по тестовым клиентам которые создаются по умолчанию.
     /// </summary>
     public class AccountController
     {
@@ -60,23 +58,6 @@ namespace NeobisTask.Controllers
             if (response.Status == StatusResponse.InsufficientFunds)
                 return "Недостаточно денег на балансе счёта!";
             return $"Вы сняли {moneyToWithdraw}. Ваш текущий баланс {response.Account!.Balance}.";
-        }
-
-        //Get
-        public void PrintAll()
-        {
-            var response = _service.GetAll();
-            Console.WriteLine($"***************************");
-            Console.WriteLine($"Список всех клиентов.");
-            foreach (var account in response.Accounts!)
-            {
-                Console.WriteLine($"-------------------------");
-                Console.WriteLine($"Фамилия: {account.LastName}");
-                Console.WriteLine($"Имя: {account.Name}");
-                Console.WriteLine($"Баланс: {account.Balance}");
-                Console.WriteLine($"-------------------------");
-            }
-            Console.WriteLine($"***************************");
         }
     }
 }
