@@ -15,9 +15,9 @@ namespace NeobisTask
         {
             while (true)
             {
-                Console.Write("Укажите ID счёта для выхода нажмите клавишу \"E\": ");
+                Console.Write("Укажите ID счёта для выхода нажмите клавишу \"e\": ");
                 var input = Console.ReadLine();
-                if (input == "e") break;
+                if (input == "e" || input == "у" || input == "е" || input == "t") break;
                 if (!int.TryParse(input, out int number))
                 {
                     Console.WriteLine("ID не найден!");
@@ -25,7 +25,6 @@ namespace NeobisTask
                 }
                 var id = number;
                 if (_account.IsAccess(id)) InPersonalAccount(id);
-                Console.WriteLine("Счёт не найден.");
             }
         }
 
