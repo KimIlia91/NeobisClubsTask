@@ -15,11 +15,16 @@ namespace NeobisTask
 
         public ApplicationDbContext()
         {
-            Users = new List<User>()
+            Users = ModelsCreating();
+        }
+
+        private static List<User> ModelsCreating()
+        {
+            return new List<User>()
             {
-                new User { Name = "Talant", LastName = "Talantbekov", Balance = 5000 },
-                new User { Name = "Ruslan", LastName = "Ruslanov", Balance = 1000 },
-                new User { Name = "Aida", LastName = "Aidova", Balance = 800 }
+                new User { Id = 1, Name = "Talant", LastName = "Talantbekov", Balance = 5000 },
+                new User { Id = 2, Name = "Ruslan", LastName = "Ruslanov", Balance = 1000 },
+                new User { Id = 3, Name = "Aida", LastName = "Aidova", Balance = 800 }
             };
         }
     }
