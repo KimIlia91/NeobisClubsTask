@@ -3,6 +3,10 @@ using NeobisTask.Models;
 
 namespace NeobisTask
 {
+    /// <summary>
+    /// Создано три тестовых клиента.
+    /// Id для теста 1, 2, 3
+    /// </summary>
     internal class Program
     {
         static void Main(string[] args)
