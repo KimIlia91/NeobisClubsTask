@@ -22,11 +22,9 @@ namespace NeobisTask
         }
 
         //Get
-        public void PrintBalanceOfClient(string lastName)
+        public void PrintBalanceOfClient(int id)
         {
-            if (string.IsNullOrEmpty(lastName))
-                Console.WriteLine("Введите фамилию клиента!");
-            var user = _db.Users.FirstOrDefault(x => x.LastName == lastName);
+            var user = _db.Users.FirstOrDefault(x => x.Id == id);
             if (user is null)
                 Console.WriteLine("Клиент не найден!");
             Console.WriteLine($"-------------------------");
@@ -38,11 +36,9 @@ namespace NeobisTask
         }
 
         //PUT 
-        public string PutMoneyToBalance(string lastName, int moneyToPut)
+        public string PutMoneyToBalance(int id, int moneyToPut)
         {
-            if (string.IsNullOrEmpty(lastName))
-                return "Введите фамилию клиента!";
-            var user = _db.Users.FirstOrDefault(u => u.LastName == lastName);
+            var user = _db.Users.FirstOrDefault(u => u.Id == id);
             if (user is null)
                 return "Клиент не найден!";
             var newBalance = user!.Balance + moneyToPut;
@@ -59,11 +55,9 @@ namespace NeobisTask
         }
 
         //PUT 
-        public string WithdrawMoneyFromBalance(string lastName, int moneyToWithdraw)
+        public string WithdrawMoneyFromBalance(int id, int moneyToWithdraw)
         {
-            if (string.IsNullOrEmpty(lastName))
-                return "Введите фамилию клиента!";
-            var user = _db.Users.FirstOrDefault(u => u.LastName == lastName);
+            var user = _db.Users.FirstOrDefault(u => u.Id == id);
             if (user is null)
                 Console.WriteLine("Клиент не найден!");
             if (user!.Balance < moneyToWithdraw)
