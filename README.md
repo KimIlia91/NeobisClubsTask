@@ -9,4 +9,4 @@
 
 Напиши свой вариант простого класса с функциями, который будет удовлетворять условия задачи.  Можно использовать любой удобный для тебя язык программирования 
 
-### Логика atm была добавлена в два основных класса [Repository](https://github.com/KimIlia91/ASP.NET/tree/main/Abby) и AccountController класс Display изложенно стартовое меню 
+### Логика atm была добавлена в два основных класса [AccountService](https://github.com/KimIlia91/NeobisClubsTask/blob/main/NeobisTask/Service/AccountService.cs) и [AtmController]() класс Display изложенно стартовое меню 
