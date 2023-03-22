@@ -8,19 +8,19 @@
             var answer = string.Empty;
             atm.PrintAll();
 
-            atm.PrintBalanceOfClient("Talantbekov");
-            answer = atm.PutMoneyToBalance("Talantbekov", 100);
+            atm.PrintBalanceOfClient(1);
+            answer = atm.PutMoneyToBalance(1, 100);
             Console.WriteLine(answer);
-            answer = atm.WithdrawMoneyFromBalance("Talantbekov", 500);
+            answer = atm.WithdrawMoneyFromBalance(1, 500);
             Console.WriteLine(answer);
-            atm.PrintBalanceOfClient("Talantbekov");
+            atm.PrintBalanceOfClient(1);
 
-            atm.PrintBalanceOfClient("Aidova");
-            answer = atm.PutMoneyToBalance("Aidova", 10_000);
+            atm.PrintBalanceOfClient(3);
+            answer = atm.PutMoneyToBalance(3, 10_000);
             Console.WriteLine(answer);
-            answer = atm.WithdrawMoneyFromBalance("Aidova", 500);
+            answer = atm.WithdrawMoneyFromBalance(3, 500);
             Console.WriteLine(answer);
-            atm.PrintBalanceOfClient("Aidova");
+            atm.PrintBalanceOfClient(3);
             
             atm.PrintAll();
         }
