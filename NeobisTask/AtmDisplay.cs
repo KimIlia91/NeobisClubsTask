@@ -2,6 +2,10 @@
 
 namespace NeobisTask
 {
+    /// <summary>
+    /// Класс для отображения сообщений на экране ATM
+    /// Типа View ))))
+    /// </summary>
     public class AtmDisplay : AccountController
     {
         public void MainMenu()
