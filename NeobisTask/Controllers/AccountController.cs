@@ -1,5 +1,5 @@
-﻿using NeobisTask.Repositories;
-using NeobisTask.Repositories.IRepositories;
+﻿using NeobisTask.Services;
+using NeobisTask.Services.IServices;
 
 namespace NeobisTask.Controllers
 {

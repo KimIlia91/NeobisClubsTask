@@ -1,7 +1,4 @@
-﻿using NeobisTask.Controllers;
-using NeobisTask.Models;
-
-namespace NeobisTask
+﻿namespace NeobisTask
 {
     /// <summary>
     /// Создано три тестовых клиента.

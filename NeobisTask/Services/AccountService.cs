@@ -1,9 +1,14 @@
 ﻿using NeobisTask.Data;
 using NeobisTask.Models;
-using NeobisTask.Repositories.IRepositories;
+using NeobisTask.Services.IServices;
 
-namespace NeobisTask.Repositories
+namespace NeobisTask.Services
 {
+    /// <summary>
+    /// Класс сервис для обработки данных из БД
+    /// И передачи ответа в контроллер
+    /// Инъекция через интерфейс IAccountService
+    /// </summary>
     public class AccountService : IAccountService
     {
         private readonly ApplicationDbContext _db;
@@ -37,20 +42,24 @@ namespace NeobisTask.Repositories
                 _response.Status = StatusResponse.InvalidSum;
             else
             {
-                var accountToUpdate = new Account()
-                {
-                    Id = account.Id,
-                    LastName = account.LastName,
-                    Name = account.Name,
-                    Balance = account.Balance + sum
-                };
+                Account accountToUpdate = CreateAccountToAddSum(sum, account);
                 _db.Accounts.Remove(account);
                 _db.Accounts.Add(accountToUpdate);
                 _response.Account = accountToUpdate;
                 _response.Status = StatusResponse.Ok;
             }
-            
             return _response;
+        }
+
+        private static Account CreateAccountToAddSum(decimal sum, Account? account)
+        {
+            return new Account()
+            {
+                Id = account.Id,
+                LastName = account.LastName,
+                Name = account.Name,
+                Balance = account.Balance + sum
+            };
         }
 
         public OperationResponse MinusSum(int id, decimal sum)
@@ -64,20 +73,24 @@ namespace NeobisTask.Repositories
                 _response.Status = StatusResponse.InsufficientFunds;
             else
             {
-                var accountToUpdate = new Account()
-                {
-                    Id = account.Id,
-                    LastName = account.LastName,
-                    Name = account.Name,
-                    Balance = account.Balance - sum
-                };
+                var accountToUpdate = CreateAccountForMinusSum(sum, account);
                 _db.Accounts.Remove(account);
                 _db.Accounts.Add(accountToUpdate);
                 _response.Account = accountToUpdate;
                 _response.Status = StatusResponse.Ok;
             }
-
             return _response;
+        }
+
+        private static Account CreateAccountForMinusSum(decimal sum, Account account)
+        {
+            return new Account()
+            {
+                Id = account.Id,
+                LastName = account.LastName,
+                Name = account.Name,
+                Balance = account.Balance - sum
+            };
         }
     }
 }

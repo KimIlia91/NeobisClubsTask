@@ -23,7 +23,7 @@ namespace NeobisTask
 
         private void InPersonalAccount(int id)
         {
-            bool alive = true;
+            var alive = true;
             while (alive)
             {
                 ConsoleColor color = Console.ForegroundColor;
@@ -32,7 +32,7 @@ namespace NeobisTask
                 Console.WriteLine("4. Выйти из программы");
                 Console.Write("Введите номер пункта: ");
                 Console.ForegroundColor = color;
-                int command = Convert.ToInt32(Console.ReadLine());
+                var command = int.Parse(Console.ReadLine()!);
                 if (command == 1) AccountInfo(id);
                 else if (command == 2) Withdraw(id);
                 else if (command == 3) Put(id);

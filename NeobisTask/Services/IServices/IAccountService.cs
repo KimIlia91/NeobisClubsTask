@@ -1,6 +1,6 @@
 ﻿using NeobisTask.Models;
 
-namespace NeobisTask.Repositories.IRepositories
+namespace NeobisTask.Services.IServices
 {
     public interface IAccountService
     {
