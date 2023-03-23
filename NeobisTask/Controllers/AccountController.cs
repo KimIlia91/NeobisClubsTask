@@ -16,14 +16,14 @@ namespace NeobisTask.Controllers
             _service = new AccountService();
         }
 
-        public bool IsAccess(int id)
+        protected bool IsAccess(int id)
         {
             var response = _service.GetFirstOrDefault(id);
             return response.Status == StatusResponse.Ok;
         }
 
         //Get
-        public void PrintBalanceOfClient(int id)
+        protected void PrintBalanceOfClient(int id)
         {
             var response = _service.GetFirstOrDefault(id);
             if (response.Status == StatusResponse.NotFound)
@@ -37,7 +37,7 @@ namespace NeobisTask.Controllers
         }
 
         //PUT 
-        public string PutMoneyToBalance(int id, decimal moneyToPut)
+        protected string PutMoneyToBalance(int id, decimal moneyToPut)
         {
             var response = _service.AddSum(id, moneyToPut);
             if (response.Status == StatusResponse.NotFound)
@@ -48,7 +48,7 @@ namespace NeobisTask.Controllers
         }
 
         //PUT 
-        public string WithdrawMoneyFromBalance(int id, decimal moneyToWithdraw)
+        protected string WithdrawMoneyFromBalance(int id, decimal moneyToWithdraw)
         {
             var response = _service.MinusSum(id, moneyToWithdraw);
             if (response.Status == StatusResponse.NotFound)

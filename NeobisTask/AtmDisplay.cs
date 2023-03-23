@@ -2,15 +2,8 @@
 
 namespace NeobisTask
 {
-    public class AtmDisplay
+    public class AtmDisplay : AccountController
     {
-        private readonly AccountController _account;
-
-        public AtmDisplay()
-        {
-            _account = new AccountController();
-        }
-
         public void MainMenu()
         {
             while (true)
@@ -24,7 +17,7 @@ namespace NeobisTask
                     continue;
                 }
                 var id = number;
-                if (_account.IsAccess(id)) InPersonalAccount(id);
+                if (IsAccess(id)) InPersonalAccount(id);
             }
         }
 
@@ -47,7 +40,7 @@ namespace NeobisTask
             }
         }
 
-        private void AccountInfo(int id) => _account.PrintBalanceOfClient(id);
+        private void AccountInfo(int id) => PrintBalanceOfClient(id);
 
         private void Put(int id)
         {
@@ -55,7 +48,7 @@ namespace NeobisTask
             if (decimal.TryParse(Console.ReadLine(), out decimal number))
             {
                 var sum = number;
-                Console.WriteLine(_account.PutMoneyToBalance(id, sum));
+                Console.WriteLine(PutMoneyToBalance(id, sum));
                 return;
             }
             Console.WriteLine("Укажите число!");
@@ -67,7 +60,7 @@ namespace NeobisTask
             if (decimal.TryParse(Console.ReadLine(), out decimal number))
             {
                 var sum = number;
-                Console.WriteLine(_account.WithdrawMoneyFromBalance(id, sum));
+                Console.WriteLine(WithdrawMoneyFromBalance(id, sum));
                 return;
             }
             Console.WriteLine("Укажите число!");
