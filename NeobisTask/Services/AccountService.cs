@@ -42,24 +42,13 @@ namespace NeobisTask.Services
                 _response.Status = StatusResponse.InvalidSum;
             else
             {
-                Account accountToUpdate = CreateAccountToAddSum(sum, account);
+                var accountToUpdate = CreateAccountToAddSum(sum, account);
                 _db.Accounts.Remove(account);
                 _db.Accounts.Add(accountToUpdate);
                 _response.Account = accountToUpdate;
                 _response.Status = StatusResponse.Ok;
             }
             return _response;
-        }
-
-        private static Account CreateAccountToAddSum(decimal sum, Account? account)
-        {
-            return new Account()
-            {
-                Id = account.Id,
-                LastName = account.LastName,
-                Name = account.Name,
-                Balance = account.Balance + sum
-            };
         }
 
         public OperationResponse MinusSum(int id, decimal sum)
@@ -90,6 +79,17 @@ namespace NeobisTask.Services
                 LastName = account.LastName,
                 Name = account.Name,
                 Balance = account.Balance - sum
+            };
+        }
+
+        private static Account CreateAccountToAddSum(decimal sum, Account account)
+        {
+            return new Account()
+            {
+                Id = account.Id,
+                LastName = account.LastName,
+                Name = account.Name,
+                Balance = account.Balance + sum
             };
         }
     }
