@@ -9,4 +9,4 @@
 
 Напиши свой вариант простого класса с функциями, который будет удовлетворять условия задачи.  Можно использовать любой удобный для тебя язык программирования 
 
-### Логика банкомата была добавлена в два основных класса [AccountService](https://github.com/KimIlia91/NeobisClubsTask/blob/main/NeobisTask/Service/AccountService.cs) и [AtmController](https://github.com/KimIlia91/NeobisClubsTask/blob/main/NeobisTask/Controllers/AccountController.cs). В класс [DisplayAtm](https://github.com/KimIlia91/NeobisClubsTask/blob/main/NeobisTask/AtmDisplay.cs) изложенно стартовое меню 
+### Консольное приложение Банкомата. Логика банкомата была добавлена в два основных класса [AccountService](https://github.com/KimIlia91/NeobisClubsTask/blob/main/NeobisTask/Service/AccountService.cs) и [AtmController](https://github.com/KimIlia91/NeobisClubsTask/blob/main/NeobisTask/Controllers/AccountController.cs). В класс [DisplayAtm](https://github.com/KimIlia91/NeobisClubsTask/blob/main/NeobisTask/AtmDisplay.cs) изложенно стартовое меню 
